@@ -27,6 +27,11 @@ public class Main {
                 break;
             }
 
+            if(current.getNeighbors().isEmpty()){
+                System.out.println("El nodo actual no tiene mas vecinos, saliendo");
+                break;
+            }
+
             maze.step(mouse);
         }
     }
