@@ -1,5 +1,7 @@
 package io.github.xjesusx0;
 
+import io.github.xjesusx0.models.Maze;
+import io.github.xjesusx0.models.Mouse;
 import io.github.xjesusx0.models.Node;
 
 public class Main {
@@ -13,5 +15,19 @@ public class Main {
         start.connect(left, right);
         left.connect(finalNode);
         right.connect(finalNode);
+
+        Mouse mouse = new Mouse(start);
+        Maze maze = new Maze(start);
+
+        while (true){
+            Node current = mouse.getCurrent();
+
+            System.out.printf("El raton esta actualmente en: %s%n", current.getName());
+            if(current.getIsFinal()){
+                break;
+            }
+
+            maze.step(mouse);
+        }
     }
 }
