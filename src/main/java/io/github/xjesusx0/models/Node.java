@@ -1,21 +1,21 @@
 package io.github.xjesusx0.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 @AllArgsConstructor
 @Builder
-@Data
 public class Node {
     @ToString.Exclude
-    private List<Node> neighbors;
+    private final List<Node> neighbors;
 
+    @Setter
     private Boolean isFinal;
+
+    @Setter
     private String name;
 
     public Node() {
